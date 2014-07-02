@@ -23,4 +23,8 @@ static Data *sharedData = nil;
     return sharedData;
 }
 
+//+ (NSArray *)insertMark:(Mark *)mark {
+//    return _ma;
+//}
+
 @end
