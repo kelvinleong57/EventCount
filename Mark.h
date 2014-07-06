@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Mark : NSObject
+@interface Mark : NSObject <NSCoding> {
+    NSString *label;
+    int maxDays;
+    int remainingDays;
+}
 
 @property (nonatomic) NSString *label;
-@property int maxDays;
-@property int remainingDays;
+@property (nonatomic) int maxDays;
+@property (nonatomic) int remainingDays;
 
 - (void) set:(NSString *)label days:(int)maxDays;
 

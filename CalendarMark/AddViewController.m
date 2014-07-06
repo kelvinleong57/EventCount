@@ -10,12 +10,15 @@
 #import "AddViewController.h"
 #import "AppDelegate.h"
 
+#import "MarkStore.h"
+
 @interface AddViewController ()
 @end
 
 @implementation AddViewController
 
-@synthesize delegate, labelNameString, maxDaysInt;
+//@synthesize delegate, labelNameString, maxDaysInt;
+@synthesize labelNameString, maxDaysInt;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -70,10 +73,9 @@
 
         labelNameString = _labelName.text;
         maxDaysInt = (int) sliderVal;
-    
-        [[self delegate] setLabelName:labelNameString];
-        [[self delegate] setMaxDays:maxDaysInt];
-    
+        
+        [[MarkStore sharedStore] createMarkLabel:labelNameString withDays:maxDaysInt];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         

@@ -12,11 +12,9 @@
 #import "DetailViewController.h"
 #import "AddViewController.h"
 
-#import "Data.h"
+#import "MarkStore.h"
 
-@interface MasterViewController () {
-    NSMutableArray *_marks;
-}
+@interface MasterViewController ()
 @end
 
 @implementation MasterViewController
@@ -31,30 +29,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
-    // FOR TESTING PURPOSES
-    
-    Mark *testMark = [[Mark alloc] init];
-    testMark.label = @"Test";
-    testMark.maxDays = 18;
-    testMark.remainingDays = 18;
-    [self insertNewMark: testMark];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewMark:(Mark *) mark {
-    if (!_marks) {
-        _marks = [[NSMutableArray alloc] init];
-    }
-    
-    [_marks insertObject:mark atIndex:0];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -64,14 +43,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _marks.count;
+    return [[[MarkStore sharedStore] allMarks] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    Mark *obj = _marks[indexPath.row];
+    // If there is no reusable cell of this type, create a new one
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    Mark *obj = [[[MarkStore sharedStore] allMarks] objectAtIndex:[indexPath row]];
     cell.textLabel.text = [obj label];
     
     // remaining days
@@ -90,19 +74,21 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_marks removeObjectAtIndex:indexPath.row];
+        MarkStore *ms = [MarkStore sharedStore];
+        NSArray *items = [ms allMarks];
+        Mark *m = [items objectAtIndex:[indexPath row]];
+        [ms removeMark:m];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
 
-/*
-// Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    [[MarkStore sharedStore] moveItemAtIndex:[fromIndexPath row] toIndex:[toIndexPath row]];
 }
-*/
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -118,55 +104,28 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         DetailViewController *dvc = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Mark *m = _marks[indexPath.row];
+        
+        Mark *m = [[MarkStore sharedStore] allMarks][indexPath.row];
+        
         [dvc setCurrentMark:m];
         [dvc setDetailItem:m];
     }
     
     if ([[segue identifier] isEqualToString:@"addView"]) {
-        UINavigationController *navController = segue.destinationViewController;
-        AddViewController *avc = (AddViewController *)navController.topViewController;
-        [avc setDelegate:self];
+//        UINavigationController *navController = segue.destinationViewController;
+//        AddViewController *avc = (AddViewController *)navController.topViewController;
+//        [avc setDelegate:self];
     }
 }
 
 -(void) viewDidAppear:(BOOL)animated {
+    // reload table data each time to update remaining days
     
-    // to prevent adding a new Mark every time MasterViewController appeares
-    if (labelNameString.length > 0) {
-        if (!_marks) {
-            _marks = [[NSMutableArray alloc] init];
-        }
-        
-        Mark *mark = [[Mark alloc] init];
-        
-        [mark setLabel:labelNameString];
-        [mark setMaxDays:maxDaysInt];
-        [mark setRemainingDays:maxDaysInt];
-        
-        [_marks insertObject:mark atIndex:_marks.count];
-        
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_marks.count-1 inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        
-        // dump previous values
-        labelNameString = @"";
-        maxDaysInt = -5;
-    }
-}
-
-- (void)someFunction{
-    Data *data = [Data sharedData];
-    data.username = @"Username";
-}
-
-#pragma mark - Protocol Methods
-
--(void)setLabelName:(NSString *)labelName {
-    labelNameString = labelName;
-}
--(void)setMaxDays:(int)maxDays {
-    maxDaysInt = maxDays;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+//    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:3 inSection:0];
+//    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+//    [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

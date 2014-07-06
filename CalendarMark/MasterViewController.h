@@ -12,12 +12,19 @@
 
 #import "AddViewController.h"
 
-@interface MasterViewController : UITableViewController <passMark>
+//@protocol NSCoding
+//
+//- (void)encodeWithCoder:(NSCoder *)aCoder;
+//- (id)initWithCoder:(NSCoder *)aDecoder;
+//
+//@end
+
+@interface MasterViewController : UITableViewController
 
 // for passing info
 @property (nonatomic, strong)NSString *labelNameString;
 @property int maxDaysInt;
 
-- (void)insertNewMark:(Mark *) mark;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

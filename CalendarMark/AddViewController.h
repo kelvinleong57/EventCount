@@ -11,22 +11,13 @@
 #import "Mark.h"
 #import "InfoViewController.h"
 
-
-@protocol passMark <NSObject>
-
-//-(void)set:(Mark *)mark;
--(void)setLabelName:(NSString *)labelName;
--(void)setMaxDays:(int)maxDays;
-
-@end
-
-@interface AddViewController : UIViewController <passMark>
+@interface AddViewController : UIViewController
 
 // bar buttons
 - (IBAction)cancel:(UIBarButtonItem *)sender;
 - (IBAction)save:(UIBarButtonItem *)sender;
 
-@property (retain)id <passMark> delegate;
+//@property (retain)id <passMark> delegate;
 
 // for transferring info across View Controllers
 @property (nonatomic, strong)NSString *labelNameString;

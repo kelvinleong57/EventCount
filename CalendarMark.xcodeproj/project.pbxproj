@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B636D56F196230C000285EB7 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B636D56E196230C000285EB7 /* InfoViewController.m */; };
-		B671DC1B19648D850093CD72 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = B671DC1A19648D850093CD72 /* Data.m */; };
+		B68E78801964B21100DA88B0 /* MarkStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B68E787F1964B21100DA88B0 /* MarkStore.m */; };
 		B6CA587C195E411A00A23C4F /* Mark.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CA587B195E411A00A23C4F /* Mark.m */; };
 		B6CA587F195E455400A23C4F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CA587E195E455400A23C4F /* AddViewController.m */; };
 		B6D67B6A195E407500F3F0A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D67B69195E407500F3F0A5 /* Foundation.framework */; };
@@ -41,8 +41,8 @@
 /* Begin PBXFileReference section */
 		B636D56D196230C000285EB7 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		B636D56E196230C000285EB7 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		B671DC1919648D850093CD72 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
-		B671DC1A19648D850093CD72 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		B68E787E1964B21100DA88B0 /* MarkStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkStore.h; path = ../MarkStore.h; sourceTree = "<group>"; };
+		B68E787F1964B21100DA88B0 /* MarkStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkStore.m; path = ../MarkStore.m; sourceTree = "<group>"; };
 		B6CA587A195E411A00A23C4F /* Mark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mark.h; sourceTree = "<group>"; };
 		B6CA587B195E411A00A23C4F /* Mark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mark.m; sourceTree = "<group>"; };
 		B6CA587D195E455400A23C4F /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
@@ -97,8 +97,6 @@
 		B6D67B5D195E407500F3F0A5 = {
 			isa = PBXGroup;
 			children = (
-				B671DC1919648D850093CD72 /* Data.h */,
-				B671DC1A19648D850093CD72 /* Data.m */,
 				B6CA587A195E411A00A23C4F /* Mark.h */,
 				B6CA587B195E411A00A23C4F /* Mark.m */,
 				B6D67B6F195E407500F3F0A5 /* CalendarMark */,
@@ -131,6 +129,8 @@
 		B6D67B6F195E407500F3F0A5 /* CalendarMark */ = {
 			isa = PBXGroup;
 			children = (
+				B68E787E1964B21100DA88B0 /* MarkStore.h */,
+				B68E787F1964B21100DA88B0 /* MarkStore.m */,
 				B6D67B78195E407500F3F0A5 /* AppDelegate.h */,
 				B6D67B79195E407500F3F0A5 /* AppDelegate.m */,
 				B6D67B7B195E407500F3F0A5 /* Main.storyboard */,
@@ -277,8 +277,8 @@
 				B6CA587C195E411A00A23C4F /* Mark.m in Sources */,
 				B6D67B7A195E407500F3F0A5 /* AppDelegate.m in Sources */,
 				B6CA587F195E455400A23C4F /* AddViewController.m in Sources */,
-				B671DC1B19648D850093CD72 /* Data.m in Sources */,
 				B6D67B80195E407500F3F0A5 /* MasterViewController.m in Sources */,
+				B68E78801964B21100DA88B0 /* MarkStore.m in Sources */,
 				B6D67B76195E407500F3F0A5 /* main.m in Sources */,
 				B636D56F196230C000285EB7 /* InfoViewController.m in Sources */,
 				B6D67B83195E407500F3F0A5 /* DetailViewController.m in Sources */,
