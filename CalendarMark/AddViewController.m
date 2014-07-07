@@ -74,12 +74,10 @@
         labelNameString = _labelName.text;
         maxDaysInt = (int) sliderVal;
         
-        [[MarkStore sharedStore] createMarkLabel:labelNameString withDays:maxDaysInt];
+        [[MarkStore sharedStore] createMarkWithLabel:labelNameString andDays:maxDaysInt];
         
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        
-        // not finished
         UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"It appears that you have not finished filling out everything." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
         [myAlert show];
     }

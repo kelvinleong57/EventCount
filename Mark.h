@@ -18,6 +18,8 @@
 @property (nonatomic) int maxDays;
 @property (nonatomic) int remainingDays;
 
+@property (nonatomic) NSMutableArray *datesUsed;
+
 - (void) set:(NSString *)label days:(int)maxDays;
 
 @end

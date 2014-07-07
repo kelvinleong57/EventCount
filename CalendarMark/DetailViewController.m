@@ -10,13 +10,15 @@
 
 #import "DetailViewController.h"
 #import "MasterViewController.h"
+#import "MarkStore.h"
+#import "Mark.h"
 
 @interface DetailViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *currentDetail;
-- (void)configureView;
 @end
 
 @implementation DetailViewController
+
+@synthesize detailViewControllerTitle, maxDaysLabel, remainingDaysLabel, currentMark;
 
 #pragma mark - Managing the detail item
 
@@ -32,20 +34,31 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-    if (self.detailItem) {
-        NSString *remainingDaysString = [NSString stringWithFormat:@"Remaining: %i", [self.detailItem remainingDays]];
-        
-        self.detailDescriptionLabel.text = remainingDaysString;
-        
-        _currentDetail.text = remainingDaysString; // must be modified for outlet
+    detailViewControllerTitle.title = currentMark.label;
+    maxDaysLabel.text = [NSString stringWithFormat:@"%i", currentMark.maxDays];
+    remainingDaysLabel.text = [NSString stringWithFormat:@"%i", currentMark.remainingDays];
+    
+    if (currentMark.remainingDays == 0) {
+        [self noMoreDays];
     }
+}
+
+- (void) noMoreDays {
+    NSString *msg = [NSString stringWithFormat:@"There are 0 days remaining for %@.", currentMark.label];
     
-    _detailViewControllerTitle.title = _currentMark.label;
-    
-    _maxDaysLabel.text = [NSString stringWithFormat:@"%i", _currentMark.maxDays];
-    
-    _remainingDaysLabel.text = [NSString stringWithFormat:@"%i", _currentMark.remainingDays];
+    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Notice"
+                                                      message:msg
+                                                     delegate:nil
+                                            cancelButtonTitle:@"Okay"
+                                            otherButtonTitles:nil, nil];
+    [myAlert show];
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad
@@ -53,29 +66,104 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self initButtons];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [self configureView];
 }
 
-- (void)initButtons {
-    self.sundayButton.layer.cornerRadius = self.sundayButton.bounds.size.width/2.0;
-    self.sundayButton.layer.borderWidth = 1.0;
-    self.sundayButton.layer.borderColor = self.sundayButton.titleLabel.textColor.CGColor;
-    self.sundayButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:5];
-    self.sundayButton.titleLabel.text = @"HI";
-}
+- (IBAction)pressMinusOneUsed:(id)sender {
+    if (currentMark.remainingDays == 0) {
+        [self noMoreDays];
+        return;
+    }
+    
+    currentMark.remainingDays--;
+    
+    if (!currentMark.datesUsed) {
+        currentMark.datesUsed = [[NSMutableArray alloc] init];
+    }
+    
+    NSDate *today = [NSDate date];
+    [currentMark.datesUsed addObject:today];
 
-- (IBAction)pressSunday:(id)sender {
-    _currentMark.remainingDays--;
+    // adding animation
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[currentMark.datesUsed count]-1 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)resetAction:(id)sender {
+    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Confirm"
+                                                      message:@"Are you sure you want to reset your uses? All previous dates/uses will be erased."
+                                                     delegate:self
+                                            cancelButtonTitle:@"No"
+                                            otherButtonTitles:@"Reset", nil];
+    [myAlert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]){}
+    else {
+        [currentMark.datesUsed removeAllObjects];
+        currentMark.remainingDays = currentMark.maxDays;
+        
+        [self configureView];
+                
+        [self.tableView reloadData];
+    }
+}
+
+
+
+
+#pragma mark - Table View
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [currentMark.datesUsed count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailCell" forIndexPath:indexPath];
+    
+    // If there is no reusable cell of this type, create a new one
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"detailCell"];
+    }
+    
+    NSDate *date = [currentMark.datesUsed objectAtIndex:[indexPath row]];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"EEEE: MMMM d, YYYY"];
+    cell.textLabel.text = [dateFormat stringFromDate:date];
+
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [currentMark.datesUsed removeObjectAtIndex:indexPath.row];
+        currentMark.remainingDays++;
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self configureView];
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
 }
 
 @end

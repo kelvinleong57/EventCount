@@ -13,14 +13,14 @@
     NSMutableArray *allMarks;
 }
 
--(NSString *) itemArchivePath;
--(BOOL) saveChanges;
+-(NSString *)itemArchivePath;
+-(BOOL)saveChanges;
 
-- (Mark *) createMarkLabel:(NSString *)label withDays:(int)days;
+- (void)createMarkWithLabel:(NSString *)label andDays:(int)days;
 - (void)removeMark:(Mark *)m;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
 
--(NSArray *) allMarks;
+- (NSArray *) allMarks;
 
 + (MarkStore *)sharedStore;
 

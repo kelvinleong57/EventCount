@@ -36,6 +36,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewDidAppear:(BOOL)animated {
+    // reload table data each time to update remaining days
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    //    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:3 inSection:0];
+    //    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+    //    [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
+
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -116,16 +129,6 @@
 //        AddViewController *avc = (AddViewController *)navController.topViewController;
 //        [avc setDelegate:self];
     }
-}
-
--(void) viewDidAppear:(BOOL)animated {
-    // reload table data each time to update remaining days
-    
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-//    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:3 inSection:0];
-//    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
-//    [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

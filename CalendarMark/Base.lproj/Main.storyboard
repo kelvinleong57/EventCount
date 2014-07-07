@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -194,8 +194,8 @@
                                 <rect key="frame" x="20" y="527" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="2el-9S-8qG"/>
-                                    <constraint firstAttribute="width" constant="72" id="oOH-TZ-QIF"/>
+                                    <constraint firstAttribute="height" constant="21" id="NOp-Po-cWS"/>
+                                    <constraint firstAttribute="width" constant="72" id="QvG-0b-svS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
@@ -204,19 +204,19 @@
                                 <rect key="frame" x="90" y="527" width="23" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="23" id="lL8-RV-27r"/>
+                                    <constraint firstAttribute="width" constant="23" id="35y-nx-Var"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV6-6Q-qZO">
-                                <rect key="frame" x="137" y="238" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV6-6Q-qZO">
+                                <rect key="frame" x="92" y="495" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
+                                <state key="normal" title="-1 Use">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressSunday:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="cAp-zR-U4m"/>
+                                    <action selector="pressMinusOneUsed:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="hqL-U8-8aq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5y-Yl-Cxx">
@@ -230,35 +230,73 @@
                                 <rect key="frame" x="278" y="527" width="23" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="23" id="kJ5-f7-Xyn"/>
+                                    <constraint firstAttribute="width" constant="23" id="hpR-9l-baL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e4N-Yx-Onq">
+                                <rect key="frame" x="0.0" y="64" width="325" height="423"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="gIz-Qt-1om">
+                                        <rect key="frame" x="0.0" y="22" width="325" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gIz-Qt-1om" id="zfz-3V-ejO">
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ah7-4n-0Wa" id="6SA-ZH-KVv"/>
+                                    <outlet property="delegate" destination="Ah7-4n-0Wa" id="f5J-0X-0ov"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FP6-u2-ZcV">
+                                <rect key="frame" x="189" y="495" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetAction:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="qUn-8t-3nE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MOg-Nd-Tjs" firstAttribute="leading" secondItem="FcZ-yn-OjR" secondAttribute="trailing" constant="-2" id="1pj-Au-sNm"/>
-                            <constraint firstItem="l5y-Yl-Cxx" firstAttribute="top" secondItem="MOg-Nd-Tjs" secondAttribute="top" id="80N-Lk-RAF"/>
-                            <constraint firstAttribute="bottom" secondItem="FcZ-yn-OjR" secondAttribute="bottom" constant="20" symbolic="YES" id="8X0-9P-WEY"/>
-                            <constraint firstItem="l5y-Yl-Cxx" firstAttribute="leading" secondItem="MOg-Nd-Tjs" secondAttribute="trailing" constant="93" id="8cl-9W-UKa"/>
-                            <constraint firstItem="l5y-Yl-Cxx" firstAttribute="baseline" secondItem="MOg-Nd-Tjs" secondAttribute="baseline" id="AoH-qd-jYV"/>
-                            <constraint firstItem="TrZ-Nj-O9T" firstAttribute="leading" secondItem="l5y-Yl-Cxx" secondAttribute="trailing" constant="3" id="ExX-fv-kl2"/>
-                            <constraint firstItem="MOg-Nd-Tjs" firstAttribute="baseline" secondItem="FcZ-yn-OjR" secondAttribute="baseline" id="GqK-HM-N3C"/>
-                            <constraint firstItem="TrZ-Nj-O9T" firstAttribute="baseline" secondItem="l5y-Yl-Cxx" secondAttribute="baseline" id="HIp-Qu-T8H"/>
-                            <constraint firstItem="FcZ-yn-OjR" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="20" symbolic="YES" id="Xe7-bM-7ha"/>
-                            <constraint firstAttribute="trailing" secondItem="TrZ-Nj-O9T" secondAttribute="trailing" constant="19" id="XnN-dZ-W6k"/>
-                            <constraint firstItem="TrZ-Nj-O9T" firstAttribute="top" secondItem="l5y-Yl-Cxx" secondAttribute="top" id="cBh-pS-UHt"/>
-                            <constraint firstItem="PV6-6Q-qZO" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="137" id="ixa-gh-Jgf"/>
-                            <constraint firstItem="FcZ-yn-OjR" firstAttribute="top" secondItem="MOg-Nd-Tjs" secondAttribute="top" id="ltf-Wu-5UK"/>
+                            <constraint firstAttribute="trailing" secondItem="TrZ-Nj-O9T" secondAttribute="trailing" constant="19" id="0Jt-dR-gxH"/>
+                            <constraint firstItem="PV6-6Q-qZO" firstAttribute="top" secondItem="e4N-Yx-Onq" secondAttribute="bottom" constant="8" symbolic="YES" id="6Oc-T3-7Iq"/>
+                            <constraint firstItem="l5y-Yl-Cxx" firstAttribute="baseline" secondItem="MOg-Nd-Tjs" secondAttribute="baseline" id="7sz-Rp-EHy"/>
+                            <constraint firstItem="TrZ-Nj-O9T" firstAttribute="leading" secondItem="l5y-Yl-Cxx" secondAttribute="trailing" constant="3" id="Agd-Yb-Sek"/>
+                            <constraint firstItem="MOg-Nd-Tjs" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="90" id="Ce8-0v-OBY"/>
+                            <constraint firstItem="FcZ-yn-OjR" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="20" symbolic="YES" id="EYJ-jV-ITk"/>
+                            <constraint firstItem="e4N-Yx-Onq" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" id="L7n-qM-Js2"/>
+                            <constraint firstItem="MOg-Nd-Tjs" firstAttribute="top" secondItem="FcZ-yn-OjR" secondAttribute="top" id="OB5-L8-ubs"/>
+                            <constraint firstItem="PV6-6Q-qZO" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="92" id="QEg-ks-S1A"/>
+                            <constraint firstItem="l5y-Yl-Cxx" firstAttribute="leading" secondItem="MOg-Nd-Tjs" secondAttribute="trailing" constant="93" id="SsF-rK-tH2"/>
+                            <constraint firstItem="e4N-Yx-Onq" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" id="XYF-Ag-wYx"/>
+                            <constraint firstItem="l5y-Yl-Cxx" firstAttribute="top" secondItem="TrZ-Nj-O9T" secondAttribute="top" id="Xpt-5U-lrB"/>
+                            <constraint firstItem="FP6-u2-ZcV" firstAttribute="leading" secondItem="PV6-6Q-qZO" secondAttribute="trailing" constant="51" id="YLf-aE-xev"/>
+                            <constraint firstItem="FcZ-yn-OjR" firstAttribute="baseline" secondItem="MOg-Nd-Tjs" secondAttribute="baseline" id="aTV-pw-ngo"/>
+                            <constraint firstItem="l5y-Yl-Cxx" firstAttribute="top" secondItem="MOg-Nd-Tjs" secondAttribute="top" id="caJ-ze-Ulg"/>
+                            <constraint firstItem="PV6-6Q-qZO" firstAttribute="baseline" secondItem="FP6-u2-ZcV" secondAttribute="baseline" id="jqm-Ai-kcz"/>
+                            <constraint firstAttribute="bottom" secondItem="FcZ-yn-OjR" secondAttribute="bottom" constant="20" symbolic="YES" id="kld-Am-Qht"/>
+                            <constraint firstItem="TrZ-Nj-O9T" firstAttribute="baseline" secondItem="l5y-Yl-Cxx" secondAttribute="baseline" id="skx-qP-c3E"/>
+                            <constraint firstItem="MOg-Nd-Tjs" firstAttribute="top" secondItem="PV6-6Q-qZO" secondAttribute="bottom" constant="2" id="tOU-fN-jtd"/>
+                            <constraint firstAttribute="trailing" secondItem="e4N-Yx-Onq" secondAttribute="trailing" constant="-5" id="v9r-mO-HXV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
                         <outlet property="detailViewControllerTitle" destination="cra-N8-TIN" id="0OA-Rm-Y5Y"/>
                         <outlet property="maxDaysLabel" destination="MOg-Nd-Tjs" id="T1s-2G-vay"/>
+                        <outlet property="minusOneUsedButton" destination="PV6-6Q-qZO" id="MAD-hH-u55"/>
                         <outlet property="remainingDaysLabel" destination="TrZ-Nj-O9T" id="3rR-ab-POO"/>
-                        <outlet property="sundayButton" destination="PV6-6Q-qZO" id="0v6-7D-w3f"/>
+                        <outlet property="resetButton" destination="FP6-u2-ZcV" id="aNW-bw-Xlo"/>
+                        <outlet property="tableView" destination="e4N-Yx-Onq" id="aTH-e5-SGA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>

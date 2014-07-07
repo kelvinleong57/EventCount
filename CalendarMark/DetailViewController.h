@@ -10,7 +10,7 @@
 #import "Mark.h"
 #import "MasterViewController.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *detailViewControllerTitle;
 @property (strong, nonatomic) id detailItem;
@@ -18,9 +18,14 @@
 
 @property (nonatomic) Mark *currentMark;
 
+//@property NSMutableArray *datesUsed;
+
 @property (weak, nonatomic) IBOutlet UILabel *maxDaysLabel;
 @property (weak, nonatomic) IBOutlet UILabel *remainingDaysLabel;
 
-@property (weak, nonatomic) IBOutlet UIButton *sundayButton;
+@property (weak, nonatomic) IBOutlet UIButton *minusOneUsedButton;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

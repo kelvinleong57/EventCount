@@ -26,7 +26,7 @@
     return self;
 }
 
-- (Mark *) createMarkLabel:(NSString *)label withDays:(int)days {
+- (void) createMarkWithLabel:(NSString *)label andDays:(int)days {
     if (!allMarks)
         allMarks = [[NSMutableArray alloc] init];
     
@@ -36,8 +36,6 @@
     obj.remainingDays = days;
     
     [allMarks addObject:obj];
-    
-    return obj;
 }
 
 - (void)removeMark:(Mark *)m {
