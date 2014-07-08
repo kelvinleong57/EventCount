@@ -26,6 +26,7 @@
 		B6D67B8E195E407500F3F0A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D67B6D195E407500F3F0A5 /* UIKit.framework */; };
 		B6D67B96195E407600F3F0A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6D67B94195E407600F3F0A5 /* InfoPlist.strings */; };
 		B6D67B98195E407600F3F0A5 /* CalendarMarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D67B97195E407600F3F0A5 /* CalendarMarkTests.m */; };
+		B6D8B458196B858C00E90429 /* EditDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8B457196B858C00E90429 /* EditDateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		B6D67B93195E407600F3F0A5 /* CalendarMarkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalendarMarkTests-Info.plist"; sourceTree = "<group>"; };
 		B6D67B95195E407600F3F0A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B6D67B97195E407600F3F0A5 /* CalendarMarkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarMarkTests.m; sourceTree = "<group>"; };
+		B6D8B456196B858C00E90429 /* EditDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditDateViewController.h; path = ../EditDateViewController.h; sourceTree = "<group>"; };
+		B6D8B457196B858C00E90429 /* EditDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditDateViewController.m; path = ../EditDateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,14 +137,16 @@
 				B6D67B78195E407500F3F0A5 /* AppDelegate.h */,
 				B6D67B79195E407500F3F0A5 /* AppDelegate.m */,
 				B6D67B7B195E407500F3F0A5 /* Main.storyboard */,
-				B636D56D196230C000285EB7 /* InfoViewController.h */,
-				B636D56E196230C000285EB7 /* InfoViewController.m */,
 				B6D67B7E195E407500F3F0A5 /* MasterViewController.h */,
 				B6D67B7F195E407500F3F0A5 /* MasterViewController.m */,
-				B6D67B81195E407500F3F0A5 /* DetailViewController.h */,
-				B6D67B82195E407500F3F0A5 /* DetailViewController.m */,
 				B6CA587D195E455400A23C4F /* AddViewController.h */,
 				B6CA587E195E455400A23C4F /* AddViewController.m */,
+				B636D56D196230C000285EB7 /* InfoViewController.h */,
+				B636D56E196230C000285EB7 /* InfoViewController.m */,
+				B6D67B81195E407500F3F0A5 /* DetailViewController.h */,
+				B6D67B82195E407500F3F0A5 /* DetailViewController.m */,
+				B6D8B456196B858C00E90429 /* EditDateViewController.h */,
+				B6D8B457196B858C00E90429 /* EditDateViewController.m */,
 				B6D67B84195E407500F3F0A5 /* Images.xcassets */,
 				B6D67B70195E407500F3F0A5 /* Supporting Files */,
 			);
@@ -276,6 +281,7 @@
 			files = (
 				B6CA587C195E411A00A23C4F /* Mark.m in Sources */,
 				B6D67B7A195E407500F3F0A5 /* AppDelegate.m in Sources */,
+				B6D8B458196B858C00E90429 /* EditDateViewController.m in Sources */,
 				B6CA587F195E455400A23C4F /* AddViewController.m in Sources */,
 				B6D67B80195E407500F3F0A5 /* MasterViewController.m in Sources */,
 				B68E78801964B21100DA88B0 /* MarkStore.m in Sources */,

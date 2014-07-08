@@ -18,8 +18,6 @@
 
 @property (nonatomic) Mark *currentMark;
 
-//@property NSMutableArray *datesUsed;
-
 @property (weak, nonatomic) IBOutlet UILabel *maxDaysLabel;
 @property (weak, nonatomic) IBOutlet UILabel *remainingDaysLabel;
 

@@ -12,6 +12,7 @@
 #import "MasterViewController.h"
 #import "MarkStore.h"
 #import "Mark.h"
+#import "EditDateViewController.h"
 
 @interface DetailViewController ()
 @end
@@ -66,9 +67,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1.0]];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [self configureView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
 }
 
 - (IBAction)pressMinusOneUsed:(id)sender {
@@ -139,7 +145,8 @@
     NSDate *date = [currentMark.datesUsed objectAtIndex:[indexPath row]];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"EEEE: MMMM d, YYYY"];
+//    [dateFormat setDateFormat:@"EEEE: MMMM d, YYYY"];
+    [dateFormat setDateFormat:@"EEE: MMMM d"];
     cell.textLabel.text = [dateFormat stringFromDate:date];
 
     return cell;
@@ -163,6 +170,16 @@
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"editDate"]) {
+        EditDateViewController *edvc = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        [edvc setCurrentMark:currentMark];
+        [edvc setSelectedIndex:indexPath.row];
     }
 }
 
