@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B636D56F196230C000285EB7 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B636D56E196230C000285EB7 /* InfoViewController.m */; };
+		B63EB632196BA5AF00A20F85 /* EditDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EB631196BA5AF00A20F85 /* EditDateViewController.m */; };
 		B68E78801964B21100DA88B0 /* MarkStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B68E787F1964B21100DA88B0 /* MarkStore.m */; };
 		B6CA587C195E411A00A23C4F /* Mark.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CA587B195E411A00A23C4F /* Mark.m */; };
 		B6CA587F195E455400A23C4F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CA587E195E455400A23C4F /* AddViewController.m */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		B636D56D196230C000285EB7 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		B636D56E196230C000285EB7 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		B63EB630196BA5AF00A20F85 /* EditDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDateViewController.h; sourceTree = "<group>"; };
+		B63EB631196BA5AF00A20F85 /* EditDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDateViewController.m; sourceTree = "<group>"; };
 		B68E787E1964B21100DA88B0 /* MarkStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkStore.h; path = ../MarkStore.h; sourceTree = "<group>"; };
 		B68E787F1964B21100DA88B0 /* MarkStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkStore.m; path = ../MarkStore.m; sourceTree = "<group>"; };
 		B6CA587A195E411A00A23C4F /* Mark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mark.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				B636D56E196230C000285EB7 /* InfoViewController.m */,
 				B6D67B81195E407500F3F0A5 /* DetailViewController.h */,
 				B6D67B82195E407500F3F0A5 /* DetailViewController.m */,
+				B63EB630196BA5AF00A20F85 /* EditDateViewController.h */,
+				B63EB631196BA5AF00A20F85 /* EditDateViewController.m */,
 				B6D67B84195E407500F3F0A5 /* Images.xcassets */,
 				B6D67B70195E407500F3F0A5 /* Supporting Files */,
 			);
@@ -276,6 +281,7 @@
 			files = (
 				B6CA587C195E411A00A23C4F /* Mark.m in Sources */,
 				B6D67B7A195E407500F3F0A5 /* AppDelegate.m in Sources */,
+				B63EB632196BA5AF00A20F85 /* EditDateViewController.m in Sources */,
 				B6CA587F195E455400A23C4F /* AddViewController.m in Sources */,
 				B6D67B80195E407500F3F0A5 /* MasterViewController.m in Sources */,
 				B68E78801964B21100DA88B0 /* MarkStore.m in Sources */,
