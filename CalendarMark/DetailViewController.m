@@ -33,15 +33,10 @@
     }
 }
 
-- (void)configureView
-{
+- (void)configureView {
     detailViewControllerTitle.title = currentMark.label;
     maxDaysLabel.text = [NSString stringWithFormat:@"%i", currentMark.maxDays];
     remainingDaysLabel.text = [NSString stringWithFormat:@"%i", currentMark.remainingDays];
-    
-    if (currentMark.remainingDays == 0) {
-        [self noMoreDays];
-    }
 }
 
 - (void) noMoreDays {
@@ -71,6 +66,9 @@
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [self configureView];
+    
+    if (currentMark.remainingDays == 0)
+        [self noMoreDays];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
