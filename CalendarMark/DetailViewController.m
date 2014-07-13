@@ -171,6 +171,18 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    int counts = [currentMark.datesUsed count];
+    
+    if (counts <= 5)
+        return 35;
+    if (counts <= 8)
+        return 30;
+    
+    // if (counts < 8)
+    return 25;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"editDate"]) {

@@ -41,9 +41,9 @@
     
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    //    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:3 inSection:0];
-    //    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
-    //    [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationAutomatic];
+//    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:[[[MarkStore sharedStore] allMarks] count]-1 inSection:0];
+//    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+//    [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 

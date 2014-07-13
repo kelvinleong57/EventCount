@@ -55,12 +55,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)infoViewControllerDidFinish:(InfoViewController *)controller
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
 - (IBAction)cancel:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

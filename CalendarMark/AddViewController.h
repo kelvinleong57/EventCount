@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MasterViewController.h"
 #import "Mark.h"
-#import "InfoViewController.h"
 
 @interface AddViewController : UIViewController
 

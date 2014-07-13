@@ -132,9 +132,6 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Bc5-ZE-8pu" kind="modal" identifier="" modalTransitionStyle="flipHorizontal" id="UOM-Ud-2kd"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -240,7 +237,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="10" reuseIdentifier="detailCell" id="gIz-Qt-1om">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" id="gIz-Qt-1om">
                                         <rect key="frame" x="0.0" y="22" width="325" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gIz-Qt-1om" id="zfz-3V-ejO">
@@ -319,7 +316,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="p4R-eP-n2v">
-                                <rect key="frame" x="0.0" y="203" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="96" width="320" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="426477243.60638303">
                                     <!--2014-07-08 01:54:03 +0000-->
@@ -346,12 +343,22 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
                             </datePicker>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTE: you can only change the date to one that is between the previous and next dates you selected" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GtN-mp-zRh">
+                                <rect key="frame" x="20" y="427" width="280" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p4R-eP-n2v" firstAttribute="centerY" secondItem="SsE-sm-Wa1" secondAttribute="centerY" id="HKa-6N-mos"/>
-                            <constraint firstItem="p4R-eP-n2v" firstAttribute="leading" secondItem="SsE-sm-Wa1" secondAttribute="leading" id="i38-4H-CcJ"/>
-                            <constraint firstAttribute="trailing" secondItem="p4R-eP-n2v" secondAttribute="trailing" id="mEW-1n-XIO"/>
+                            <constraint firstItem="p4R-eP-n2v" firstAttribute="top" secondItem="vRg-JI-9a3" secondAttribute="bottom" constant="32" id="5Kf-wx-ylu"/>
+                            <constraint firstItem="p4R-eP-n2v" firstAttribute="leading" secondItem="SsE-sm-Wa1" secondAttribute="leading" id="5Lo-yO-hEP"/>
+                            <constraint firstAttribute="trailing" secondItem="GtN-mp-zRh" secondAttribute="trailing" constant="20" symbolic="YES" id="Oaj-2P-J91"/>
+                            <constraint firstItem="LBF-1A-EN1" firstAttribute="top" secondItem="GtN-mp-zRh" secondAttribute="bottom" constant="90" id="Y0l-YN-jZ9"/>
+                            <constraint firstItem="GtN-mp-zRh" firstAttribute="leading" secondItem="SsE-sm-Wa1" secondAttribute="leading" constant="20" symbolic="YES" id="i4v-k6-pbF"/>
+                            <constraint firstItem="p4R-eP-n2v" firstAttribute="centerX" secondItem="GtN-mp-zRh" secondAttribute="centerX" id="o0v-3u-5Bb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Change Date" id="S1o-jL-5CT">
@@ -386,55 +393,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2X-NE-0mQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1006" y="462"/>
-        </scene>
-        <!--showInfo-->
-        <scene sceneID="jeP-mN-y8W">
-            <objects>
-                <viewController id="Bc5-ZE-8pu" userLabel="showInfo" customClass="InfoViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nIS-Az-OeR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qkt-yR-sqz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qG5-hk-NU9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40w-Yb-8mH">
-                                <rect key="frame" x="0.0" y="19" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Info" id="VNy-LR-H4J">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="COg-4d-k3B" userLabel="showInfo">
-                                            <connections>
-                                                <action selector="done:" destination="Bc5-ZE-8pu" id="OVk-Ec-3P7"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kZ-z2-3Ns">
-                                <rect key="frame" x="20" y="72" width="280" height="415"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.97448979591836737" green="0.97448979591836737" blue="0.97448979591836737" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="40w-Yb-8mH" firstAttribute="centerX" secondItem="4kZ-z2-3Ns" secondAttribute="centerX" id="9QZ-bg-Nsn"/>
-                            <constraint firstAttribute="trailing" secondItem="4kZ-z2-3Ns" secondAttribute="trailing" constant="20" symbolic="YES" id="ATZ-vE-e43"/>
-                            <constraint firstItem="40w-Yb-8mH" firstAttribute="top" secondItem="qG5-hk-NU9" secondAttribute="top" constant="19" id="av1-Lx-BAa"/>
-                            <constraint firstItem="4kZ-z2-3Ns" firstAttribute="leading" secondItem="qG5-hk-NU9" secondAttribute="leading" constant="20" symbolic="YES" id="daa-5b-m82"/>
-                            <constraint firstItem="4kZ-z2-3Ns" firstAttribute="top" secondItem="40w-Yb-8mH" secondAttribute="bottom" constant="9" id="dtg-ZK-bm4"/>
-                            <constraint firstItem="40w-Yb-8mH" firstAttribute="leading" secondItem="qG5-hk-NU9" secondAttribute="leading" id="tWM-cP-URM"/>
-                            <constraint firstItem="Qkt-yR-sqz" firstAttribute="top" secondItem="4kZ-z2-3Ns" secondAttribute="bottom" constant="81" id="uLM-UU-mlZ"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hJd-Wo-Fp7" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2013" y="462"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
