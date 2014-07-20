@@ -1,4 +1,0 @@
-EventCount
-============
-
-iOS application
