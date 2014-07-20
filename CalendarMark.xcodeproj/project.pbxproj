@@ -41,8 +41,8 @@
 /* Begin PBXFileReference section */
 		B63EB630196BA5AF00A20F85 /* EditDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDateViewController.h; sourceTree = "<group>"; };
 		B63EB631196BA5AF00A20F85 /* EditDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDateViewController.m; sourceTree = "<group>"; };
-		B68E787E1964B21100DA88B0 /* MarkStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkStore.h; path = ../MarkStore.h; sourceTree = "<group>"; };
-		B68E787F1964B21100DA88B0 /* MarkStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkStore.m; path = ../MarkStore.m; sourceTree = "<group>"; };
+		B68E787E1964B21100DA88B0 /* MarkStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkStore.h; sourceTree = "<group>"; };
+		B68E787F1964B21100DA88B0 /* MarkStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkStore.m; sourceTree = "<group>"; };
 		B6CA587A195E411A00A23C4F /* Mark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mark.h; sourceTree = "<group>"; };
 		B6CA587B195E411A00A23C4F /* Mark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mark.m; sourceTree = "<group>"; };
 		B6CA587D195E455400A23C4F /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
@@ -99,6 +99,8 @@
 			children = (
 				B6CA587A195E411A00A23C4F /* Mark.h */,
 				B6CA587B195E411A00A23C4F /* Mark.m */,
+				B68E787E1964B21100DA88B0 /* MarkStore.h */,
+				B68E787F1964B21100DA88B0 /* MarkStore.m */,
 				B6D67B6F195E407500F3F0A5 /* CalendarMark */,
 				B6D67B91195E407500F3F0A5 /* CalendarMarkTests */,
 				B6D67B68195E407500F3F0A5 /* Frameworks */,
@@ -129,8 +131,6 @@
 		B6D67B6F195E407500F3F0A5 /* CalendarMark */ = {
 			isa = PBXGroup;
 			children = (
-				B68E787E1964B21100DA88B0 /* MarkStore.h */,
-				B68E787F1964B21100DA88B0 /* MarkStore.m */,
 				B6D67B78195E407500F3F0A5 /* AppDelegate.h */,
 				B6D67B79195E407500F3F0A5 /* AppDelegate.m */,
 				B6D67B7B195E407500F3F0A5 /* Main.storyboard */,

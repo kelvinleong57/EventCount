@@ -14,9 +14,6 @@
 
 #import "MarkStore.h"
 
-@interface MasterViewController ()
-@end
-
 @implementation MasterViewController
 
 @synthesize labelNameString, maxDaysInt;
@@ -37,8 +34,21 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    // reload table data each time to update remaining days
+    // only if delegate gives a valid string
+    if (labelNameString.length > 0) {
+        [[MarkStore sharedStore] createMarkWithLabel:labelNameString andDays:maxDaysInt];
+        
+        labelNameString = nil;
+        
+        // for animation
+        // (may cause problems because inserting row that will already be inserted by the array's createMarkWithlabelandDays)
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[[MarkStore sharedStore] allMarks] count]-1 inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        return;
+    }
     
+    // reload table data each time to update remaining days
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     
 //    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:[[[MarkStore sharedStore] allMarks] count]-1 inSection:0];
@@ -122,13 +132,32 @@
         
         [dvc setCurrentMark:m];
         [dvc setDetailItem:m];
+        
+        // force back button to say "back"
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        [[self navigationItem] setBackBarButtonItem:newBackButton];
     }
     
     if ([[segue identifier] isEqualToString:@"addView"]) {
-//        UINavigationController *navController = segue.destinationViewController;
-//        AddViewController *avc = (AddViewController *)navController.topViewController;
-//        [avc setDelegate:self];
+        UINavigationController *navController = segue.destinationViewController;
+        AddViewController *avc = (AddViewController *)navController.topViewController;
+        [avc setDelegate:self];
     }
 }
+
+- (IBAction)rateGame {
+    [[UIApplication sharedApplication]
+     openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=409954448"]];
+}
+
+#pragma mark - Protocol Methods
+
+-(void)setLabelName:(NSString *)ln {
+    labelNameString = ln;
+}
+-(void)setMaxDays:(int)md {
+    maxDaysInt = md;
+}
+
 
 @end

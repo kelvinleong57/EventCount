@@ -39,7 +39,7 @@
     remainingDaysLabel.text = [NSString stringWithFormat:@"%i", currentMark.remainingDays];
 }
 
-- (void) noMoreDays {
+- (void) noMoreDaysAlert {
     NSString *msg = [NSString stringWithFormat:@"There are 0 days remaining for %@.", currentMark.label];
     
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Notice"
@@ -65,19 +65,30 @@
     [self.tableView setSeparatorColor:[UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1.0]];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     
+    self.tableView.layer.borderWidth = 1.0;
+    self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
     [self configureView];
     
     if (currentMark.remainingDays == 0)
-        [self noMoreDays];
+        [self noMoreDaysAlert];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.tableView reloadData];
+    [self autoScrollToBottom];
+}
+
+- (void)autoScrollToBottom {
+    // automatically scroll to bottom
+    if (self.tableView.contentSize.height >= self.tableView.frame.size.height) {
+        CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height);
+        [self.tableView setContentOffset:offset animated:YES];
+    }
 }
 
 - (IBAction)pressMinusOneUsed:(id)sender {
     if (currentMark.remainingDays == 0) {
-        [self noMoreDays];
+        [self noMoreDaysAlert];
         return;
     }
     
@@ -90,9 +101,12 @@
     NSDate *today = [NSDate date];
     [currentMark.datesUsed addObject:today];
 
-    // adding animation
+    // adding animation for adding to bottom
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[currentMark.datesUsed count]-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self.tableView reloadData];
+    [self autoScrollToBottom];
     
     [self configureView];
 }
@@ -142,6 +156,8 @@
     
     NSDate *date = [currentMark.datesUsed objectAtIndex:[indexPath row]];
     
+    
+    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
 //    [dateFormat setDateFormat:@"EEEE: MMMM d, YYYY"];
     [dateFormat setDateFormat:@"EEE: MMMM d"];
@@ -180,7 +196,7 @@
         return 30;
     
     // if (counts < 8)
-    return 25;
+    return 28;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

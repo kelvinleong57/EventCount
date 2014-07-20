@@ -66,6 +66,8 @@
         
     }
     
+    [[[self.navigationController viewControllers] objectAtIndex:1] viewDidLoad];
+    
     // hard-code the View Controller at position 1
     [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:1] animated:YES];
 }

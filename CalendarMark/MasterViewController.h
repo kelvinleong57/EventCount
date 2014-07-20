@@ -19,7 +19,7 @@
 //
 //@end
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <passMark>
 
 // for passing info
 @property (nonatomic, strong)NSString *labelNameString;
