@@ -1,6 +1,6 @@
 //
 //  DetailViewController.m
-//  CalendarMark
+//  EventCount
 //
 //  Created by Kelvin Leong on 6/27/14.
 //  Copyright (c) 2014 Kelvin Leong. All rights reserved.
