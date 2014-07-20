@@ -1,6 +1,6 @@
 //
-//  CalendarMarkTests.m
-//  CalendarMarkTests
+//  EventCountTests.m
+//  EventCountTests
 //
 //  Created by Kelvin Leong on 6/27/14.
 //  Copyright (c) 2014 Kelvin Leong. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface CalendarMarkTests : XCTestCase
+@interface EventCountTests : XCTestCase
 
 @end
 
-@implementation CalendarMarkTests
+@implementation EventCountTests
 
 - (void)setUp
 {

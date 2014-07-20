@@ -75,13 +75,16 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self autoScrollToBottom];
+    [self.tableView reloadData];
+    [self autoScrollToBottom:0];
 }
 
-- (void)autoScrollToBottom {
-    // automatically scroll to bottom
-    if (self.tableView.contentSize.height >= self.tableView.frame.size.height) {
-        CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height);
+- (void)autoScrollToBottom:(int)cellHeight {
+    // cellHeight to adjust for not reloading data in pressMinuOneUsed
+    // if not, this method would not scroll/account for the newest item added
+    
+    if (self.tableView.contentSize.height + cellHeight >= self.tableView.frame.size.height) {
+        CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height + cellHeight);
         [self.tableView setContentOffset:offset animated:YES];
     }
 }
@@ -105,8 +108,8 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[currentMark.datesUsed count]-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    [self.tableView reloadData];
-    [self autoScrollToBottom];
+//    [self.tableView reloadData];
+    [self autoScrollToBottom:28];
     
     [self configureView];
 }

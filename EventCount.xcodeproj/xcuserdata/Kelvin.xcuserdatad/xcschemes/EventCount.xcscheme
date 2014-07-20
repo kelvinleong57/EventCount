@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
                BuildableName = "CalendarMark.app"
-               BlueprintName = "CalendarMark"
-               ReferencedContainer = "container:CalendarMark.xcodeproj">
+               BlueprintName = "EventCount"
+               ReferencedContainer = "container:EventCount.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B6D67B89195E407500F3F0A5"
                BuildableName = "CalendarMarkTests.xctest"
-               BlueprintName = "CalendarMarkTests"
-               ReferencedContainer = "container:CalendarMark.xcodeproj">
+               BlueprintName = "EventCountTests"
+               ReferencedContainer = "container:EventCount.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
             BuildableName = "CalendarMark.app"
-            BlueprintName = "CalendarMark"
-            ReferencedContainer = "container:CalendarMark.xcodeproj">
+            BlueprintName = "EventCount"
+            ReferencedContainer = "container:EventCount.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
             BuildableName = "CalendarMark.app"
-            BlueprintName = "CalendarMark"
-            ReferencedContainer = "container:CalendarMark.xcodeproj">
+            BlueprintName = "EventCount"
+            ReferencedContainer = "container:EventCount.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
             BuildableName = "CalendarMark.app"
-            BlueprintName = "CalendarMark"
-            ReferencedContainer = "container:CalendarMark.xcodeproj">
+            BlueprintName = "EventCount"
+            ReferencedContainer = "container:EventCount.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

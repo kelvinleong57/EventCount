@@ -63,7 +63,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="CalendarMark" id="tQt-TN-PWz">
+                    <navigationItem key="navigationItem" title="EventCount" id="tQt-TN-PWz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qKs-4a-wMt">
                             <connections>
                                 <segue destination="DSq-55-8FQ" kind="modal" identifier="addView" id="KiV-HT-vYk"/>
