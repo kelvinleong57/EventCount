@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
-               BuildableName = "CalendarMark.app"
+               BuildableName = "EventCount.app"
                BlueprintName = "EventCount"
                ReferencedContainer = "container:EventCount.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B6D67B89195E407500F3F0A5"
-               BuildableName = "CalendarMarkTests.xctest"
+               BuildableName = "EventCountTests.xctest"
                BlueprintName = "EventCountTests"
                ReferencedContainer = "container:EventCount.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
-            BuildableName = "CalendarMark.app"
+            BuildableName = "EventCount.app"
             BlueprintName = "EventCount"
             ReferencedContainer = "container:EventCount.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
-            BuildableName = "CalendarMark.app"
+            BuildableName = "EventCount.app"
             BlueprintName = "EventCount"
             ReferencedContainer = "container:EventCount.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B6D67B65195E407500F3F0A5"
-            BuildableName = "CalendarMark.app"
+            BuildableName = "EventCount.app"
             BlueprintName = "EventCount"
             ReferencedContainer = "container:EventCount.xcodeproj">
          </BuildableReference>
