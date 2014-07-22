@@ -85,6 +85,10 @@
     NSString *remainingDaysString = [NSString stringWithFormat:@"Remaining: %i", [obj remainingDays]];
     
     cell.detailTextLabel.text = remainingDaysString;
+    
+    cell.textLabel.font = [UIFont systemFontOfSize:23];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+    
     return cell;
 }
 
