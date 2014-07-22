@@ -110,7 +110,7 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    [[MarkStore sharedStore] moveItemAtIndex:[fromIndexPath row] toIndex:[toIndexPath row]];
+    [[MarkStore sharedStore] moveItemAtIndex:(int)[fromIndexPath row] toIndex:(int)[toIndexPath row]];
 }
 
 /*
@@ -121,6 +121,10 @@
  return YES;
  }
  */
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 57;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

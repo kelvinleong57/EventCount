@@ -109,7 +109,7 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     //    [self.tableView reloadData];
-    [self autoScrollToBottom:28];
+    [self autoScrollToBottom:38];
     
     [self configureView];
 }
@@ -191,15 +191,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    int counts = [currentMark.datesUsed count];
+    int counts = (int) [currentMark.datesUsed count];
     
     if (counts <= 5)
-        return 35;
+        return 45;
     if (counts <= 8)
-        return 30;
+        return 40;
     
     // if (counts < 8)
-    return 28;
+    return 38;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -208,7 +208,7 @@
         EditDateViewController *edvc = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [edvc setCurrentMark:currentMark];
-        [edvc setSelectedIndex:indexPath.row];
+        [edvc setSelectedIndex:(int)indexPath.row];
     }
 }
 
