@@ -123,7 +123,7 @@
  */
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 57;
+    return 67;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
