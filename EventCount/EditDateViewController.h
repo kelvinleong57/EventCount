@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "Mark.h"
+#import "AADatePicker.h"
 
 @interface EditDateViewController : UIViewController
 
 @property (nonatomic) Mark *currentMark;
 @property (nonatomic) int selectedIndex;
 
-@property BOOL needToResort;
-
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+//@property BOOL needToResort;
+@property AADatePicker *datePicker;
 
 @end
