@@ -20,7 +20,10 @@
 @synthesize selectedIndex, currentMark, datePicker;
 
 - (void)viewDidLoad {
-    datePicker = [[AADatePicker alloc] initWithFrame:CGRectMake(0, 130, 320, 264) maxDate:[NSDate dateWithTimeIntervalSinceNow:7*24*60*60] minDate:[NSDate date] showValidDatesOnly:NO];
+    int width = self.view.frame.size.width;
+    int height = self.view.frame.size.height;
+    
+    datePicker = [[AADatePicker alloc] initWithFrame:CGRectMake(0, height / 2 - 350 / 2 + 40, width, 350) maxDate:[NSDate dateWithTimeIntervalSinceNow:7*24*60*60] minDate:[NSDate date] showValidDatesOnly:NO];
     
     datePicker.delegate = self;
     [self.view addSubview:datePicker];
