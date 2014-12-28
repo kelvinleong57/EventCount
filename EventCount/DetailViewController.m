@@ -90,12 +90,16 @@
 }
 
 - (IBAction)pressMinusOneUsed:(id)sender {
+    // display the alert when enter screen with 0 remaining days
     if (currentMark.remainingDays == 0) {
         [self noMoreDaysAlert];
         return;
     }
     
-    currentMark.remainingDays--;
+    // display the alert when you just reach 0
+    if (--currentMark.remainingDays == 0) {
+        [self noMoreDaysAlert];
+    }
     
     if (!currentMark.datesUsed) {
         currentMark.datesUsed = [[NSMutableArray alloc] init];
@@ -158,8 +162,6 @@
     }
     
     NSDate *date = [currentMark.datesUsed objectAtIndex:[indexPath row]];
-    
-    
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     //    [dateFormat setDateFormat:@"EEEE: MMMM d, YYYY"];
